@@ -11,13 +11,13 @@ class Timer extends Component {
   }
 
   componentDidMount() {
-    this.addInterval = setInterval(() => this.increase(), 1000);
+    this.addInterval = setInterval(() => this.tambah(), 1000);
   }
 
   componentWillUnmount() {
     clearInterval(this.addInterval);
   }
-  increase() {
+  tambah() {
     this.setState((state, props) => ({
       time: parseInt(state.time) + 1,
     }));
@@ -40,12 +40,53 @@ function Introduction(props) {
   );
 }
 
+function ClickEvent() {
+  function aturClick(e) {
+    alert("Berhasil Di Click");
+    e.kembaliClick();
+  }
+
+  return (
+    <a href="#" onClick={aturClick}>
+      Select
+    </a>
+  );
+}
+
+class BtnClickON extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checkStatus: true,
+    };
+
+    this.btnTest = this.btnTest.bind(this);
+  }
+  btnTest() {
+    this.setState((state) => ({
+      checkStatus: !state.checkStatus,
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.btnTest}>
+        {this.state.checkStatus ? "ON" : "OFF"}
+      </button>
+    );
+  }
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Introduction name="Fahmi Ali " age="23" address="Malang" />
+
+        <ClickEvent />
+
+        <BtnClickON />
       </header>
     </div>
   );
