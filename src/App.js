@@ -1,22 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+function Introduction(props) {
+  return (
+    <div>
+      <h1>Hallo {props.name}</h1>
+      <h1>Age {props.age}</h1>
+      <h1>Alamat {props.address}</h1>
+    </div>
+  );
+}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Introduction name="Fahmi Ali " age="23" address="Malang" />
       </header>
     </div>
   );
