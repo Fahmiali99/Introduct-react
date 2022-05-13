@@ -1,31 +1,37 @@
 import React, { useState } from "react";
 
 function MainAbout() {
-  const [count, setCount] = useState(4);
+  const [count, setState] = useState(4);
+  const [theme, setTheme] = useState();
 
   function decrementCount() {
-    setCount(count - 1);
+    setState((prevState) => prevState - 1);
+    setTheme("red");
   }
 
   function incrementCount() {
-    setCount(count + 1);
+    setState((plusState) => plusState + 1);
+    setTheme("green");
   }
 
   return (
     <div>
       <div className=" text-white flex align-center ">
         <button
-          onClick={incrementCount}
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          +
-        </button>
-        <span className="text-5xl">{count}</span>
-        <button
           onClick={decrementCount}
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           -
+        </button>
+
+        <span className="text-5xl">{count}</span>
+        <span className="text-4xl">{theme}</span>
+
+        <button
+          onClick={incrementCount}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          +
         </button>
       </div>
     </div>
